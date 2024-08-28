@@ -1,0 +1,26 @@
+﻿@model List<ResultBottomGridDto>
+@{
+    string className = "col-lg-4 col-md-6 grids-feature";
+    byte count = 0;
+}
+<section class="w3l-bottom-grids py-5" id="steps">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="grids-area-hny main-cont-wthree-fea row">
+                @foreach (var item in Model)
+                {
+                    <div class=@className>
+                    <div class="area-box no-box-shadow">
+                        <span class="fa @item.Icon fa-2x"></span>
+                        <h5>@item.Title</h5>
+                        <h4><a href="#feature" class="title-head">@item.Description</a></h4>
+                        <a href="#more" class="more">Search for home<span class="fa fa-long-arrow-right"></span> </a>
+                    </div>
+                    </div>
+                    if (count == 0)
+                        className = "col-lg-4 col-md-6 grids-feature mt-md-0 mt-4";
+                    else if (count == 1)
+                        className = "col - lg - 4 col - md - 6 grids - feature mt - lg - 0 mt - 4";
+                }
+        </div>
+    </div>
+</section>
