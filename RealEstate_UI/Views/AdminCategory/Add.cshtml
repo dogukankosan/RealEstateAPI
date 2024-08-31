@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "KategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Yeni Kategori Ekle</h6>
+        <hr />
+        <form asp-action="Ekle" asp-controller="AdminKategori" method="post">
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Kategori Adı:</label>
+                <div class="col-sm-8">
+                    <input name="CategoryName" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <br />
+            <div class="row mb-2 align-items-center">
+                <legend class="col-sm-4 col-form-label pt-0">Kategori Durum:</legend>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input name="CategoryStatus" value="1" class="form-check-input" type="checkbox" id="CategoryStatus">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Kategori Ekle</button>
+        </form>
+    </div>
+</div>

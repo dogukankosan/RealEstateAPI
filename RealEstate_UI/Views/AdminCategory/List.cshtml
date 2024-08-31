@@ -1,0 +1,44 @@
+﻿@model List<ResultCategoryDto>
+@{
+    ViewData["Title"] = "KategoriListe";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Kategori Listesi</h6>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Kategori Adı</th>
+                    <th scope="col">Kategori Durum</th>
+                    <th scope="col">Kategori Güncelle</th>
+                    <th scope="col">Kategori Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (ResultCategoryDto item in Model)
+                {
+                    string _status = item.CategoryStatus ? "Aktif" : "Pasif";
+                    string className = item.CategoryStatus ?"alert-success":"alert-danger";
+                    <tr>
+                        <th scope="row">@item.CategoryID</th>
+                        <td>@item.CategoryName</td>
+                        <td>
+                            <span class="@className">
+                                <a  class="btn">
+                                    @_status
+                                </a>
+                            </span>
+                        </td>
+                        <td><a href="~/AdminKategori/Guncelle/@item.CategoryID" class="btn btn-primary">Güncelle</a></td>
+                        <td><a href="~/AdminKategori/Sil/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="~/AdminKategori/Ekle" class="btn btn-success">Yeni Kategori Ekle</a>
+    </div>
+</div>
