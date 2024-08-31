@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using RealEstate_API.Dtos.AboutDtos;
 using RealEstate_API.Dtos.BottomGridDtos;
 using RealEstate_API.Models.DapperContext;
 using System.Data;
@@ -13,10 +12,6 @@ namespace RealEstate_API.Repositories.BottomGridRepositories
         {
             _context = context;
         }
-        public void CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
-        {
-            throw new NotImplementedException();
-        }
         public async Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
         {
             using (IDbConnection connection = _context.CreateConnection())
@@ -24,13 +19,26 @@ namespace RealEstate_API.Repositories.BottomGridRepositories
                 return (await connection.QueryAsync<ResultBottomGridDto>("SELECT * FROM BottomGrid")).ToList();
             }
         }
-        public Task<GetBottomGridDto> GetByIDBottomGridAsync(byte id)
+        public async Task<GetBottomGridDto> GetByIDBottomGridAsync(byte id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = _context.CreateConnection())
+            {
+                DynamicParameters parameters = new();
+                parameters.Add("@bottomGridID", id);
+                return await connection.QueryFirstOrDefaultAsync<GetBottomGridDto>("SELECT * FROM BottomGrid WHERE BottomGridID=@bottomGridID", parameters);
+            }
         }
-        public void UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
+        public async void UpdateBottomGridAsync(UpdateBottomGridDto updateBottomGridDto)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = _context.CreateConnection())
+            {
+                DynamicParameters parameters = new();
+                parameters.Add("@bottomID", updateBottomGridDto.BottomGridID);
+                parameters.Add("@bottomIcon", updateBottomGridDto.Icon);
+                parameters.Add("@bottomTitle", updateBottomGridDto.Title);
+                parameters.Add("@bottomDesc", updateBottomGridDto.Description);
+                await connection.ExecuteAsync("UPDATE BottomGrid SET Icon='bottomIcon' , Title='@bottomTitle' ,Description='@bottomDesc' WHERE BottomGridID=@bottomID", parameters);
+            }
         }
     }
 }

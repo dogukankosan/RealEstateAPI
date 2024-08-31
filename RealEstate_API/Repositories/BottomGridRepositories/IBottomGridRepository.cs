@@ -1,5 +1,4 @@
-﻿using RealEstate_API.Dtos.AboutDtos;
-using RealEstate_API.Dtos.BottomGridDtos;
+﻿using RealEstate_API.Dtos.BottomGridDtos;
 
 namespace RealEstate_API.Repositories.BottomGridRepositories
 {
@@ -7,7 +6,6 @@ namespace RealEstate_API.Repositories.BottomGridRepositories
     {
         Task<List<ResultBottomGridDto>> GetAllBottomGridAsync();
         Task<GetBottomGridDto> GetByIDBottomGridAsync(byte id);
-        void UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto);
-        void CreateBottomGrid(CreateBottomGridDto createBottomGridDto);
+        void UpdateBottomGridAsync(UpdateBottomGridDto updateBottomGridDto);
     }
 }

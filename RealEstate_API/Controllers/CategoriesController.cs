@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RealEstate_API.Dtos.CategoryDtos;
-using RealEstate_API.Repositories.CategoryRepository;
+using RealEstate_API.Repositories.CategoryRepositories;
 
 namespace RealEstate_API.Controllers
 {
@@ -24,19 +24,19 @@ namespace RealEstate_API.Controllers
             return Ok(await _categoryRepository.GetAllCategoryAsync());
         }
         [HttpPost]
-        public async Task<IActionResult> CategoryCreate(CreateCategoryDto createCategoryDto)
+        public IActionResult CategoryCreate(CreateCategoryDto createCategoryDto)
         {
             _categoryRepository.AddCategory(createCategoryDto);
             return Ok("Kategori Başarılı Bir Şekilde Eklendi");
         }
         [HttpDelete]
-        public async Task<IActionResult> CategoryDelete(byte id)
+        public IActionResult CategoryDelete(byte id)
         {
             _categoryRepository.DeleteCategory(id);
             return Ok("Kategori Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]
-        public async Task<IActionResult> CategoryUpdate(UpdateCategoryDto updateCategoryDto)
+        public IActionResult CategoryUpdate(UpdateCategoryDto updateCategoryDto)
         {
             _categoryRepository.UpdateCategory(updateCategoryDto);
             return Ok("Kategori Başarılı Bir Şekilde Güncellendi");

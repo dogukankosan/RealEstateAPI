@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RealEstate_API.Repositories.ProductRepository;
+using RealEstate_API.Repositories.ProductRepositories;
 
 namespace RealEstate_API.Controllers
 {
@@ -13,7 +13,7 @@ namespace RealEstate_API.Controllers
             _productRepository = productRepository;
         }
         [HttpGet]
-        public async Task<IActionResult> CategoryList()
+        public async Task<IActionResult> ProductList()
         {
             return Ok(await _productRepository.GetAllProductAsync());
         }

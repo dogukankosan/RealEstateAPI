@@ -1,54 +1,28 @@
-﻿@{
+﻿@model List<ResultSubFeatureDto>
+@{
     Layout = null;
+    string className = "col-lg-4 col-md-6 grids-feature";
+    byte count = 0;
 }
-<section class="w3l-cover-3">
-	<div class="cover top-bottom">
-		<div class="container">
-			<div class="middle-section text-center">
-				<div class="section-width">
-					<p>Hayalinizdeki Eve Sahip Olun !</p>
-					<h2>Sizin İçin Doğru Evi Bulalım</h2>
-					<div class="most-searches">
-						<h4>Sık Arananlar</h4>
-						<ul>
-							<li><a href="#link">Villa</a></li>
-							<li><a href="#link">Apartment</a></li>
-							<li><a href="#link">Private house</a></li>
-						</ul>
-					</div>
-					<form action="#" class="w3l-cover-3-gd" method="GET">
-						<input type="search" name="text" placeholder="Anahtar Kelimeyi Girin" required>
-						<span class="input-group-btn">
-							<select class="btn btn-default" name="ext" required>
-								<option selected="">Gayrimenkul Türü</option>
-								<option>Villa</option>
-								<option>Apartment</option>
-								<option>Private house</option>
-								<option>Building</option>
-								<option>Shop</option>
-								<option>Social housing</option>
-								<option>Town house</option>
-							</select>
-						</span>
-						<span class="input-group-btn">
-							<select class="btn btn-default" name="ext" required>
-								<option selected="">Ülke Seçiniz</option>
-								<option>Australia</option>
-								<option>London</option>
-								<option>India</option>
-								<option>Bangladesh</option>
-								<option>Saudi Arabia</option>
-								<option>America</option>
-								<option>Srilanka</option>
-							</select>
-						</span>
-						<button type="submit" class="btn-primary">Ara</button>
-					</form>
-				</div>
-				<section id="bottom" class="demo">
-					<a href="#bottom"><span></span>İlan Listesi</a>
-				</section>
-			</div>
-		</div>
-	</div>
+<section class="w3l-bottom-grids py-5" id="steps">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="grids-area-hny main-cont-wthree-fea row">
+            @foreach (ResultSubFeatureDto item in Model)
+                {
+                    <div class=@className>
+                    <div class="area-box no-box-shadow">
+                        <span class="fa @item.Icon fa-2x"></span>
+                        <h5>@item.MainTitle</h5>
+                        <p>@item.SubTitle</p>
+                        <h4><a href="#feature" class="title-head">@item.Description</a></h4>
+                        <a href="#more" class="more">Search for home<span class="fa fa-long-arrow-right"></span> </a>
+                    </div>
+                    </div>
+                    if (count == 0)
+                        className = "col-lg-4 col-md-6 grids-feature mt-md-0 mt-4";
+                    else if (count == 1)
+                        className = "col - lg - 4 col - md - 6 grids - feature mt - lg - 0 mt - 4";
+                }
+        </div>
+    </div>
 </section>

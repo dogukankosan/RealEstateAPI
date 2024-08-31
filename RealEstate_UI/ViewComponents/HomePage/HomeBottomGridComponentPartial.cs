@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using RealEstate_UI.Dtos.AboutDtos;
-using RealEstate_UI.Dtos.BottomGridDto;
+using RealEstate_UI.Dtos.BottomGridDtos;
 
 namespace RealEstate_UI.ViewComponents.HomePage
 {
-    public class HomeBottomGridComponentPartial:ViewComponent
+    public class HomeBottomGridComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
         public HomeBottomGridComponentPartial(IHttpClientFactory httpClientFactory)

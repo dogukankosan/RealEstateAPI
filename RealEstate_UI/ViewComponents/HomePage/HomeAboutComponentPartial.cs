@@ -18,7 +18,7 @@ namespace RealEstate_UI.ViewComponents.HomePage
             if (responseMessage.IsSuccessStatusCode)
             {
                 string jsonData = await responseMessage.Content.ReadAsStringAsync();
-                List<ResultAboutDtos> values = JsonConvert.DeserializeObject<List<ResultAboutDtos>>(jsonData);
+                List<ResultAboutDto> values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
                 return View(values.OrderBy(x => x.AboutID).FirstOrDefault());
             }
             return View();

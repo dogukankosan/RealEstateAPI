@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RealEstate_API.Dtos.AboutDtos;
-using RealEstate_API.Repositories.AboutRepository;
+using RealEstate_API.Repositories.AboutRepositories;
+
 
 namespace RealEstate_API.Controllers
 {
@@ -13,15 +14,10 @@ namespace RealEstate_API.Controllers
         {
             _aboutRepository = aboutRepository;
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> AboutByID(byte id)
-        {
-            return Ok(await _aboutRepository.GetByIDAboutAsync(id));
-        }
         [HttpGet]
         public async Task<IActionResult> AboutList()
         {
-            return Ok(await _aboutRepository.GetAllAboutAsync());
+            return Ok(await _aboutRepository.GetAllAboutTop1Async());
         }
         [HttpPut]
         public async Task<IActionResult> AboutUpdate(UpdateAboutDto updateAboutDto)

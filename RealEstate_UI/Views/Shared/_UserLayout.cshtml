@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Blog - @ViewData["Title"]</title>
+    <title>EmlakSatis - @ViewData["Title"]</title>
     <meta name="description" content="Türkiye genelinde en uygun fiyatlarla satılık ve kiralık daireler, villalar ve iş yerleri. Emlak yatırımlarınız için profesyonel danışmanlık hizmeti.">
     <meta name="keywords" content="satılık daire, kiralık daire, satılık villa, emlak, gayrimenkul, satılık iş yeri, emlak danışmanlık,villa,yazlık,daire">
     <meta name="author" content="Doğukan Koşan">
@@ -18,7 +18,7 @@
     <meta name="twitter:description" content="Türkiye genelinde en uygun fiyatlarla satılık ve kiralık daireler, villalar ve iş yerleri. Emlak yatırımlarınız için profesyonel danışmanlık hizmeti.">
     <meta name="twitter:image" content="resim bulucaz">
     <meta name="robots" content="index, follow">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/favicon.svg" type="image/x-icon">
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/userThema/assets/css/style-starter.css">
 </head>
@@ -74,15 +74,7 @@
                             <span class="fa fa-home"></span> İlan Ver
                         </a>
                     </div>
-                    <div title="Arama Kutusu" class="search mx-3">
-                        <input class="search_box" type="checkbox" id="search_box">
-                        <label class="fa fa-search" for="search_box"></label>
-                        <div class="search_form">
-                            <form action="error.html" method="GET">
-                                <input type="text" placeholder="Arama"><input type="submit" value="Arama">
-                            </form>
-                        </div>
-                    </div>
+                    @await Component.InvokeAsync("SharedTopSearchComponentPartial")
                 </div>
                 <div class="mobile-position">
                     <nav class="navigation">
@@ -167,31 +159,22 @@
         $(document).ready(function () {
             $('.popup-with-zoom-anim').magnificPopup({
                 type: 'inline',
-
                 fixedContentPos: false,
                 fixedBgPos: true,
-
                 overflowY: 'auto',
-
                 closeBtnInside: true,
                 preloader: false,
-
                 midClick: true,
                 removalDelay: 300,
                 mainClass: 'my-mfp-zoom-in'
             });
-
             $('.popup-with-move-anim').magnificPopup({
                 type: 'inline',
-
                 fixedContentPos: false,
                 fixedBgPos: true,
-
                 overflowY: 'auto',
-
                 closeBtnInside: true,
                 preloader: false,
-
                 midClick: true,
                 removalDelay: 300,
                 mainClass: 'my-mfp-slide-bottom'
@@ -208,7 +191,6 @@
     <script>
         $(window).on("scroll", function () {
             var scroll = $(window).scrollTop();
-
             if (scroll >= 80) {
                 $("#site-header").addClass("nav-fixed");
             } else {
