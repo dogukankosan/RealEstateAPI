@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "EmlakciEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Yeni Emlakçı Ekle</h6>
+        <hr />
+        <form asp-action="Ekle" asp-controller="AdminEmlakci" method="post">
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Emlakçı Adı:</label>
+                <div class="col-sm-8">
+                    <input name="EmployeeName" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Emlakçı Başlık:</label>
+                <div class="col-sm-8">
+                    <input name="EmployeeTitle" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Emlakçı Mail:</label>
+                <div class="col-sm-8">
+                    <input name="EmployeeMail" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Emlakçı Telefon:</label>
+                <div class="col-sm-8">
+                    <input name="EmployeePhoneNumber" type="tel" class="form-control" id=""/>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Emlakçı Resim:</label>
+                <div class="col-sm-8">
+                    <input name="EmployeeImageURL" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-2 align-items-center">
+                <legend class="col-sm-4 col-form-label pt-0">Emlakçı Durum:</legend>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input name="EmployeeStatus" value="1" class="form-check-input" type="checkbox" id="EmployeeStatus">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Emlakçı Ekle</button>
+        </form>
+    </div>
+</div>

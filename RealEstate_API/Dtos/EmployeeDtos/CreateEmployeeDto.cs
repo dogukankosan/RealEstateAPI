@@ -8,7 +8,7 @@
         public string EmployeeMail { get; set; }
         public string EmployeePhoneNumber { get; set; }
         public string EmployeeImageURL { get; set; }
-        public bool EmployeeStatus { get; set; }
+        public bool EmployeeStatus { get; set; } = false;
         public DateTime EmployeeCreateDate { get; set; } = DateTime.Now;
     }
 }

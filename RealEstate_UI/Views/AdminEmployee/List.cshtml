@@ -1,0 +1,52 @@
+﻿@model List<ResultEmployeeDto>
+@{
+    ViewData["Title"] = "Liste";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Emlakçı Listesi</h6>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Emlakçı Adı</th>
+                    <th scope="col">Emlakçı Başlık</th>
+                    <th scope="col">Emlakçı Mail</th>
+                    <th scope="col">Emlakçı Telefon</th>
+                    <th scope="col">Emlakçı Resim</th>
+                    <th scope="col">Emlakçı Durum</th>
+                    <th scope="col">Emlakçı Güncelle</th>
+                    <th scope="col">Emlakçı Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (ResultEmployeeDto item in Model)
+                {
+                    string _status = item.EmployeeStatus ? "Aktif" : "Pasif";
+                    string className = item.EmployeeStatus ? "alert-success" : "alert-danger";
+                    <tr>
+                        <th scope="row">@item.EmployeeID</th>
+                        <td>@item.EmployeeName</td>
+                        <td>@item.EmployeeTitle</td>
+                        <td>@item.EmployeeMail</td>
+                        <td>@item.EmployeePhoneNumber</td>
+                        <td><img src="@item.EmployeeImageURL" alt="..." width="50" height="50" /></td>
+                        <td>
+                            <span class="@className">
+                                <a class="btn">
+                                    @_status
+                                </a>
+                            </span>
+                        </td>
+                        <td><a href="~/AdminEmlakci/Guncelle/@item.EmployeeID" class="btn btn-primary">Güncelle</a></td>
+                        <td><a href="~/AdminEmlakci/Sil/@item.EmployeeID" class="btn btn-danger">Sil</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="~/AdminEmlakci/Ekle" class="btn btn-success">Yeni Emlakçı Ekle</a>
+    </div>
+</div>
