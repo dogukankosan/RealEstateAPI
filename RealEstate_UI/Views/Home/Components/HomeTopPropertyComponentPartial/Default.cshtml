@@ -12,15 +12,15 @@
             <div class="row pt-md-5 pt-4">
                 @{foreach (ResultProductDto item in Model)
                 {
-                    type=item.productType?"Satılık":"Kiralık";
+                    type=item.ProductType?"Satılık":"Kiralık";
                     <div class="col-lg-4 col-md-6 mb-3">
                         <a href="property-single.html">
                         <div class="box16">
                             <div class="rentext-listing-category"><span>@item.CategoryName</span><span>@type</span></div>
-                            <img style="height:180px;width:400px" class="img-fluid" src="@item.productCoverImage" alt="...">
+                            <img style="height:180px;width:400px" class="img-fluid" src="@item.ProductCoverImage" alt="...">
                             <div class="box-content">
-                                <h3 class="title">@item.productPrice ₺</h3>
-                                <span class="post">@item.productCity - @item.productDistrict</span>
+                                <h3 class="title">@item.ProductPrice ₺</h3>
+                                <span class="post">@item.ProductCity - @item.ProductDistrict</span>
                             </div>
                         </div>
                     </a>

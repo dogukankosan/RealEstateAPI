@@ -52,7 +52,7 @@ namespace RealEstate_API.Repositories.ProductRepository
         {
             using (IDbConnection connection = _context.CreateConnection())
             {
-                return (await connection.QueryAsync<ResultProductWithCategoryDto>("SELECT  \r\nCategoryName,\r\nProductTitle, \r\nProductDesc,\r\nProductPrice,\r\nProductCoverImage, \r\nProductCity, \r\nProductDistrict,\r\nProductAddress,\r\nProductStatus,ProductType FROM PRODUCTS  INNER JOIN \r\nCategories  ON CategoryID=ProductCategoryID ")).ToList();
+                return (await connection.QueryAsync<ResultProductWithCategoryDto>("SELECT   ProductID,CategoryName, ProductTitle,  ProductDesc, ProductPrice, ProductCoverImage,  ProductCity,  ProductDistrict, ProductAddress, ProductStatus,ProductType FROM PRODUCTS  INNER JOIN  Categories  ON CategoryID=ProductCategoryID")).ToList();
             }
         }
         public async void UpdateProduct(UpdateProductDto updateProductDto)

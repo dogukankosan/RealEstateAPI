@@ -1,0 +1,86 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "IlanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Yeni İlan Ekle</h6>
+        <hr />
+        <form asp-action="Ekle" asp-controller="AdminIlanlar" method="post">
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Kategori Adı:</label>
+                <div class="col-sm-8">
+                    @Html.DropDownListFor(x => x.ProductCategoryID,(List<SelectListItem>)ViewBag.Categories,new{@class="form-control"})
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">Satıcı Adı:</label>
+                <div class="col-sm-8">
+                    <input name="EmployeeID" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan Başlık:</label>
+                <div class="col-sm-8">
+                    <input name="ProductTitle" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan Açıklama:</label>
+                <div class="col-sm-8">
+                    <textarea name="ProductDesc" type="text" class="form-control" id="">
+                        </textarea>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan Fiyat:</label>
+                <div class="col-sm-8">
+                    <input name="ProductPrice" type="number" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan Resim:</label>
+                <div class="col-sm-8">
+                    <input name="ProductCoverImage" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan İl:</label>
+                <div class="col-sm-8">
+                    <input name="ProductCity" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan İlçe:</label>
+                <div class="col-sm-8">
+                    <input name="ProductDistrict" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-1">
+                <label for="" class="col-sm-4 col-form-label">İlan Adres:</label>
+                <div class="col-sm-8">
+                    <input name="ProductAddress" type="text" class="form-control" id="">
+                </div>
+            </div>
+            <div class="row mb-2 align-items-center">
+                <legend class="col-sm-4 col-form-label pt-0">İlan Tipi:</legend>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input name="ProductType" value="1" class="form-check-input" type="checkbox" id="ProductType">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2 align-items-center">
+                <legend class="col-sm-4 col-form-label pt-0">İlan Durum:</legend>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input name="ProductStatus" value="1" class="form-check-input" type="checkbox" id="ProductStatus">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">İlan Ekle</button>
+        </form>
+    </div>
+</div>

@@ -14,7 +14,7 @@ namespace RealEstate_UI.Controllers
             _httpClientFactory = httpClientFactory;
         }
         [Route("Liste")]
-        public async Task<IActionResult> ListAsync()
+        public async Task<IActionResult> List()
         {
             //todo canlıya taşınınca değiştirilecek
             HttpClient client = _httpClientFactory.CreateClient();
